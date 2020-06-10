@@ -1,14 +1,11 @@
 // call
 // 改变this的指向，...rest参数
 Function.prototype.myCall = function () {
-  if (typeof this !== "function") {
-    throw new Error("this is not a function");
+  if (this === Function.prototype) {
+    return undefined; // 用于防止 Function.prototype.myCall() 直接调用
   }
   let [context, ...args] = [...arguments];
-  if (!context) {
-    //不传或者传null undefined都指向window
-    context = typeof window === "undefined" ? global : window; //严格模式
-  }
+  context = context || window;
   context.fn = this;
   const result = context.fn(...args);
   delete context.fn;
@@ -18,16 +15,18 @@ Function.prototype.myCall = function () {
 // apply
 // 和call的参数处理不同，第二个参数是一个[]
 Function.prototype.myApply = function () {
-  if (typeof this !== "function") {
-    throw new Error("this is not a function");
+  if (this === Function.prototype) {
+    return undefined; // 用于防止 Function.prototype.myCall() 直接调用
   }
   let [context, args] = [...arguments];
-  if (!context) {
-    //不传或者传null undefined都指向window
-    context = typeof window === "undefined" ? global : window; //严格模式
-  }
+  context = context || window;
   context.fn = this;
-  const result = args ? context.fn(...args) : context.fn();
+  let result;
+  if(Array.isArray(args)) {
+    result = context.fn(...args)
+  }else {
+    result = context.fn()
+  }
   delete context.fn;
   return result;
 };
@@ -35,13 +34,11 @@ Function.prototype.myApply = function () {
 // bind
 // bind返回一个改变了this指向的func
 Function.prototype.myBind = function () {
-  if (typeof this !== "function") {
-    throw new Error("this is not a function");
+  if (this === Function.prototype) {
+    throw new TypeError('Error')
   }
   let [context, ...args] = [...arguments];
-  if (!context) {
-    context = typeof window === "undefined" ? global : window;
-  }
+  context = context || window;
   let func = this;
   // 利用闭包保存一下this
   return function newFunc() {

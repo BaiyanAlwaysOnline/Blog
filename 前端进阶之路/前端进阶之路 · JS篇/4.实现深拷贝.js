@@ -1,4 +1,6 @@
 // 深拷贝
+JSON.parse(JSON.stringify(obj))
+//
 function deepClone(target) {
   if (typeof target === "object" && target !== null) {
     let cloneTarget = Array.isArray(target) ? [] : {};
