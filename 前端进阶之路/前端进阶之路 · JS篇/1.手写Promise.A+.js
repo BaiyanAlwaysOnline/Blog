@@ -115,7 +115,8 @@ class MyPromise {
 
   //静态的resolve方法
   static resolve(value) {
-    if (value instanceof MyPromise) return value; //根据规范, 如果参数是Promise实例, 直接return这个实例
+    //根据规范, 如果参数是Promise实例, 直接return这个实例
+    if (value instanceof MyPromise) return value; 
     return new MyPromise((resolve) => resolve(value));
   }
 
