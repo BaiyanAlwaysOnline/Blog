@@ -68,9 +68,6 @@
     "@storybook/addons": "^5.2.8",
     "@storybook/preset-create-react-app": "^3.1.1",
     "@storybook/react": "^5.2.8",
-    "react-docgen-typescript-loader": "^3.6.0",
-    "rimraf": "^3.0.2",
-    "webpack": "4.42.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -81,8 +78,12 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-transition-group": "^4.4.0",
     "@types/storybook__addon-info": "^5.2.1",
+    "husky": "^4.2.5",
     "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "^16.13.1",
-    "typescript": "~3.7.2"
+    "rimraf": "^3.0.2",
+    "typescript": "~3.7.2",
+    "webpack": "4.42.0"
   }
 }

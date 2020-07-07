@@ -1,5 +1,4 @@
 import React, { FC, useRef, ChangeEvent, useState } from "react";
-import Button from "../Button/button";
 import UploadFleList from "./uploadList";
 import Dragger from "./dragger";
 import axios from "axios";
