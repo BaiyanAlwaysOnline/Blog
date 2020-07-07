@@ -1,6 +1,6 @@
 {
   "name": "alex-design",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "private": false,
   "author": "Alex Bai",
   "description": "React components library",
@@ -18,10 +18,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.19.2",
-    "babel-loader": "^8.1.0",
     "classnames": "^2.2.6",
-    "node-sass": "^4.14.1",
-    "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1"
   },
   "scripts": {
@@ -30,12 +27,13 @@
     "lint": "eslint --ext js,ts,tsx src --max-warnings 5",
     "build": "npm run clean && npm run build-ts && npm run build-scss",
     "test": "react-scripts test",
+    "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "build-ts": "tsc -p tsconfig.build.json",
-    "build-scss": "node-sass ./src/styles/index.scss ./build/index.css",
+    "build-scss": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 9010 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepublish": "npm run lint && npm run build"
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -83,7 +81,11 @@
     "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
+    "cross-env": "^7.0.0",
     "typescript": "~3.7.2",
-    "webpack": "4.42.0"
+    "webpack": "4.42.0",
+    "node-sass": "^4.14.1",
+    "babel-loader": "^8.1.0",
+    "react-scripts": "3.4.1"
   }
 }
