@@ -1,6 +1,6 @@
 {
   "name": "alex-design",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": false,
   "author": "Alex Bai",
   "description": "React components library",
@@ -12,6 +12,14 @@
     "Component",
     "UI",
     "React"
+  ],
+  "homepage": "https://github.com/BaiyanAlwaysOnline/Blog/tree/master/alex-design",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BaiyanAlwaysOnline/Blog/tree/master/alex-design"
+  },
+  "files": [
+    "dist"
   ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
